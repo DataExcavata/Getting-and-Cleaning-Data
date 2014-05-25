@@ -48,7 +48,6 @@ setwd(prevdir)
 setwd("train")
 
 #### Read the subject train data from the Samsung Galaxy S II smartphone into data frames
-X_test <- read.table("X_test.txt")
 X_train <- read.table("X_train.txt")
 y_train <- read.table("y_train.txt")
 subject_train <- read.table("subject_train.txt")
@@ -107,11 +106,14 @@ names(tidy_X) <- tidy_features[,2]
 ## 7. Use join() to match the activity labels to the single y data set
 tidy_activity <- join(tidy_y, activity_labels, type = "inner")
 
-## 8. Use cbind() to clip the singel y data set and single subject data set to the subsetted X data set
-tidy_data <- cbind(tidy_subject, "activity" = tidy_activity[,2], tidy_X)
+## 8. Use cbind() to clip the single y data set and single subject data set to the subsetted X data set
+tidy_subactX <- cbind(tidy_subject, "activity" = tidy_activity[,2], tidy_X)
 
 ## 9. Use melt() to melt the desired variables on "subject" and "activity"
-tidy_melt <- melt(tidy_data, id=c("activity", "subject"), value.name = "subjectActivityValue")
+tidy_melt <- melt(tidy_subactX, id=c("activity", "subject"), value.name = "subjectActivityValue")
 
 ## 10. Use dcast() to cast the mean of desired variables aggregated for "subject" and "activity" into a TIDY DATA SET
-tidy_mean <- dcast(tidy_melt, subject + activity ~ variable,fun.aggregate=mean)
+tidy_data <- dcast(tidy_melt, subject + activity ~ variable,fun.aggregate=mean)
+
+## 11. Write the tidy data set into the comma delimited file "tidy_mean.txt"
+write.csv(tidy_data, "tidy_data.txt")

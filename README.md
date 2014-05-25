@@ -76,3 +76,4 @@ The R script run_analysis.R can be saved in the "UCI HAR Dataset" directory.  Wh
     8.  Uses cbind() to clip the singel y data set and single subject data set to the subsetted X data set
     9.  Uses melt() to melt the desired variables on "subject" and "activity"
     10. Uses dcast() to cast the mean of desired variables aggregated for "subject" and "activity" into a TIDY DATA SET
+    11. Writes the tidy data set into the comma delimited file "tidy_data.txt"
