@@ -115,5 +115,5 @@ tidy_melt <- melt(tidy_subactX, id=c("activity", "subject"), value.name = "subje
 ## 10. Use dcast() to cast the mean of desired variables aggregated for "subject" and "activity" into a TIDY DATA SET
 tidy_data <- dcast(tidy_melt, subject + activity ~ variable,fun.aggregate=mean)
 
-## 11. Write the tidy data set into the comma delimited file "tidy_mean.txt"
+## 11. Write the tidy data set into the comma delimited file "tidy_data.txt"
 write.csv(tidy_data, "tidy_data.txt")
