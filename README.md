@@ -1,4 +1,5 @@
-#Getting and Cleaning Data - Course Project - README
+#Getting and Cleaning Data
+## Course Project - README
 ========================================================
 ##The purpose of this project...
 is to demonstrate your ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can 
@@ -19,16 +20,17 @@ Here are the data for the project:
 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
-##You should create... 
-one R script called run_analysis.R that does the following. 
+You should create one R script called run_analysis.R that does the following. 
+    
     1. Merges the training and the test sets to create one data set.
     2. Extracts only the measurements on the mean and standard deviation for each measurement. 
     3. Uses descriptive activity names to name the activities in the data set
     4. Appropriately labels the data set with descriptive activity names. 
     5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
-##Assumptions and Prequisites...
+##Assumptions and Prequisites
 The run_analysis.R script makes the following operational assumptions
+    
     1. https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip has been downloaded to
     the local machine.
     2. Said file has been upacked without manipulation to the default structure
@@ -36,7 +38,9 @@ The run_analysis.R script makes the following operational assumptions
     4. plyr package has been installed and loaded (script will check for proper installation)
     5. reshape 2 package has been installed and loaded (script will check for proper installation)
 
-The unpacked directory "UCI HAR Dataset" should contain the following:
+## Directories and Files Utilized
+The unpacked directory "UCI HAR Dataset" should contain:
+    
     activity_labels.txt*    -   indexed labels for the activities observed while wearing the; 6 rows, 2 vars
     features.txt*           -   indexed variable names for the features of the Samsung Galaxy S II; 561 rows; 2 vars
     features_info.txt       -   the information describing the variables observed 
@@ -45,12 +49,14 @@ The unpacked directory "UCI HAR Dataset" should contain the following:
     train                   -   a subdirectory containing the training data
 
 The subdirectory "test" should contain
+    
     subject_test.txt*       -   the observed subjects corresponding to the test data set; 2947 rows; 1 var
     X_test.txt*             -   test data measured for each feature of the Samsung Galaxy S II; 2947 rows; 561 vars
     y_test.txt*             -   the activity index for test data set matching the activity labels; 2947 rows; 1 var
     Inertial Signals        -   NOT USED
 
 The subdirectory "train" should contain
+    
     subject_train.txt*      -   the observed subjects corresponding to the training data set; 2947 rows; 1 var
     X_train.txt*            -   training data measured for each feature of the Samsung Galaxy S II; 2947 rows; 561 vars
     y_train.txt*            -   the activity index for traning data setmatching the activity labels; 2947 rows; 1 var
@@ -58,6 +64,7 @@ The subdirectory "train" should contain
 
     * indicates a file used in the script analysis
 
+## The Script Analysis
 The R script run_analysis.R can be saved in the "UCI HAR Dataset" directory.  When it is executed with "UCI HAR Dataset" set as the working directory, it will perform the following:
 
     0.  Checks to verify that the necessary packages plyr and rshape2 have been installed
